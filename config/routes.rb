@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
 require "sidekiq/web"
+require "rack/session/cookie"
+secret_key_base = Rails.application.credentials.secret_key_base
+Sidekiq::Web.use(Rack::Session::Cookie, secret: secret_key_base)
+
 Rails.application.routes.draw do
-  resources :pets, only: [:index, :show] do
+  resources :pets, only: [:index, :show, :create] do
     member do
       put :expire_vaccination
     end
