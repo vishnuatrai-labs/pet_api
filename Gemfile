@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 
 ruby "3.3.1"
@@ -37,7 +39,12 @@ gem "bootsnap", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem "debug", platforms: %i[ mri windows ]
+  gem 'rspec-rails'
+  gem 'rubocop', require: false
+  gem 'shoulda-matchers'
 end
 
 group :development do
