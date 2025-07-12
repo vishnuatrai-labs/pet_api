@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Pets API', type: :request do
   let(:pet) { FactoryBot.create(:pet) }
-  let(:auth_headers) {{ 'Authorization' => "Bearer token" } }
+  let(:auth_headers) { { 'Authorization' => "Bearer token" } }
 
   describe 'GET /pets' do
     it "returns all pets" do
@@ -37,5 +39,4 @@ RSpec.describe 'Pets API', type: :request do
       expect(pet.reload.vaccinated).to be_falsy
     end
   end
-
 end

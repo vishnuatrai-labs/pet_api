@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class VaccinationExpiryJob < ApplicationJob
   queue_as :default
 
